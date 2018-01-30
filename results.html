@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <link rel="shortcut icon" href="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/256/Budget-icon.png"/>
+  <head>
+    <title>Budget Wizard</title>
+    <meta charset="utf-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!Attempted Google Cal>
+    <meta name="google-signin-client_id" content="1075434731580-to72sdfc9mabhim997pfjcgcnp13aqni.apps.googleusercontent.com">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="\script.js" defer></script>
+    <script src = "auth.js" ></script>
+    <!Attempted Google cal>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+      
+    </script>
+    
+  </head>
+  
+  <body onload="getResults()">
+    
+    <h1 class="title" style="text-align:center" >Budget Wizard</h1>
+    
+    <div class="description" style="text-align:center" >
+      <p>
+        Let Budget Wizard determine the risk of your next purchase.
+      </p>
+    </div>
+    
+
+    <div class="results" style="text-align:center" >
+      <!Attempted Google Cal>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <p id="res"></p>
+    </div>
+    
+    <div class="newButtons" style="text-align:center" >
+      <button type="button" class="buttons" onclick = "toCal()" >Add to Google Calendar</button>
+
+      <button type="button" class="buttons" onclick="toHome()" >Return to Home!</button>
+    </div>
+   
+    <div class="aboutLink">
+      <p>
+        <a href="/authors.html" style="color:lightgray"> About </a>
+      </p>
+    </div>
+    
+    <div id="content">
+      
+    </div>
+    
+    <script>
+      function getResults() {
+        var text = localStorage.getItem("results");
+        document.getElementById("res").innerHTML = text;
+     }
+      function toHome(){
+        location.href='index.html';
+      }
+      function toCal(){
+        var d = new Date();
+        var year = d.getFullYear();
+        var month = d.getMonth() + 1;
+        var date = d.getDate();
+        var budget = localStorage.getItem("dailyBudget");
+        var numDays = localStorage.getItem("numberDays");
+        var start = year + '-' + month + '-' + date + 'T06:00:00-07:00';
+        var end = year + '-' + month + '-' + date + 'T7:00:00-08:00';
+        var event = {
+  'summary': 'Budget: $' + budget,
+  'location': '',
+  'description': budget,
+  'start': {
+    'dateTime': start,
+    'timeZone': 'America/Los_Angeles'
+  },
+  'end': {
+    'dateTime': end,
+    'timeZone': 'America/Los_Angeles'
+  },
+  'recurrence': [
+    'RRULE:FREQ=DAILY;COUNT=' + numDays
+  ],
+  
+    
+  };
+
+
+var request = gapi.client.calendar.events.insert({
+  'calendarId': 'primary',
+  'resource': event
+});
+
+request.execute(function(event) {
+  appendPre('Budget Added to Calendar!!');
+});
+ console.log("createdEvent");
+ console.log("start:", start);
+ console.log("month:", month);
+ 
+        
+      }
+      
+    </script>  
+    
+  </body>
+</html>
