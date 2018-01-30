@@ -1,0 +1,94 @@
+h1 {
+  color: white;
+}
+
+body {background-color: rgb(35,110,150);}
+
+.title {
+	font-family: Courier;
+	color: white;
+	font-size:65px;
+  position: relative;
+  top: 80px;
+}
+
+.description{
+  font-family: Geneva;
+	color: white;
+	font-size:15px;
+  position: relative;
+  top: 55px;
+  
+  text-align: center;
+}
+
+.links{
+  font-family: Courier;
+	color: white;
+	font-size:20px;
+  position: relative;
+  top: 250px;
+}
+
+.buttons {
+    background-color: rgb(240,165,50); /* orange */
+    border: none;
+    color: white;
+    padding: 20px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+    top: -80px;
+}
+
+.form{
+  text-align: center;
+  font-size:15px;
+  font-family: Geneva;
+  color: orange;
+  position: relative;
+  top: 110px;
+  line-height: 2.5;
+}
+
+.results{
+  text-align: center;
+  font-size:20px;
+  font-family: Geneva;
+  color: orange;
+  position: relative;
+  top: 120px;
+  line-height: 2.5;
+}
+
+.newButtons{
+  text-align: center;
+  font-size:20px;
+  font-family: Geneva;
+  color: orange;
+  position: relative;
+  top: 320px;
+  line-height: 5;
+
+}
+
+.about{
+  text-align: center;
+  font-size: 15px;
+  font-family: Geneva;
+  color: white;
+  position: relative;
+  top: 60px;
+  line-height: 3;
+}
+
+.aboutLink{
+  text-align: center;
+  font-size: 20px;
+  font-family: Courier;
+  color: white;
+  position: relative;
+  top: 280px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <link rel="shortcut icon" href="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/256/Budget-icon.png"/>
+  <head>
+    <title>Budget Wizard</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="\script.js" defer></script>
+    
+  </head>
+  
+  <body>
+    <script>
+    function submit() {
+      location.href='results.html';
+      var x = document.getElementById("form"); 
+      budget_account(x.elements[0].value, x.elements[1].value, x.elements[2].value);
+    }
+    
+  </script>  
+    
+    <h1 class="title" style="text-align:center" >Budget Wizard</h1>
+    
+    <div class="description" style="text-align:center" >
+      <p>
+        Let Budget Wizard determine the risk of your next purchase.
+      </p>
+    </div>
+    
+    <form id = "form" action="/script.js" class="form">
+      Budget ($)
+      <br>
+      <input type="number" name="budget" id="budget">
+      <br>
+      Number of Days<br>
+      <input type="number" name="days" id="days">
+      <br>
+      Purchase Price ($) <br>
+      <input type="number" name="price" id="price"> 
+      <br>  
+    </form>
+    
+    <div style="text-align:center" class="links">
+     
+      <button type="button" class="buttons" onclick="submit()" id="calculate">Should I buy this?</button>
+      
+      <p>
+        <a href="/authors.html" style="color:lightgray"> About </a>
+      </p> 
+      
+    </div>
+    
+    
+  
+    
+  </body>
+  
+</html>
